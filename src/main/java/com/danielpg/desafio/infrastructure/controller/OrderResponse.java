@@ -1,6 +1,6 @@
 package com.danielpg.desafio.infrastructure.controller;
 
-import com.danielpg.desafio.domain.Order;
+import com.danielpg.desafio.domain.order.Order;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;

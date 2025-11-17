@@ -1,8 +1,8 @@
 package com.danielpg.desafio.application.order;
 
-import com.danielpg.desafio.domain.Order;
-import com.danielpg.desafio.domain.OrderItem;
-import com.danielpg.desafio.domain.OrderRepository;
+import com.danielpg.desafio.domain.order.Order;
+import com.danielpg.desafio.domain.order.OrderItem;
+import com.danielpg.desafio.domain.order.OrderRepository;
 
 import java.util.List;
 

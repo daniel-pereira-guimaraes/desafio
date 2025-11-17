@@ -1,4 +1,4 @@
-package com.danielpg.desafio.domain;
+package com.danielpg.desafio.domain.order;
 
 import java.util.Optional;
 

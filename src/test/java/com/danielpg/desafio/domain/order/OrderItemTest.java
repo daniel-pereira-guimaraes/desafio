@@ -1,6 +1,5 @@
 package com.danielpg.desafio.domain.order;
 
-import com.danielpg.desafio.domain.OrderItem;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

@@ -1,7 +1,7 @@
 package com.danielpg.desafio.infrastructure.controller;
 
 import com.danielpg.desafio.application.order.CreateOrderUseCase;
-import com.danielpg.desafio.domain.OrderItem;
+import com.danielpg.desafio.domain.order.OrderItem;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.web.bind.annotation.*;

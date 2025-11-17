@@ -1,8 +1,8 @@
 package com.danielpg.desafio.infrastructure;
 
-import com.danielpg.desafio.domain.Order;
-import com.danielpg.desafio.domain.OrderNotFoundException;
-import com.danielpg.desafio.domain.OrderRepository;
+import com.danielpg.desafio.domain.order.Order;
+import com.danielpg.desafio.domain.order.OrderNotFoundException;
+import com.danielpg.desafio.domain.order.OrderRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
