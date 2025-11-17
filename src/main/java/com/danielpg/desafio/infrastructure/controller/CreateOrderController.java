@@ -1,8 +1,9 @@
 package com.danielpg.desafio.infrastructure.controller;
 
 import com.danielpg.desafio.application.order.CreateOrderUseCase;
-import com.danielpg.desafio.domain.Order;
 import com.danielpg.desafio.domain.OrderItem;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -18,12 +19,13 @@ public class CreateOrderController {
         this.createOrderUseCase = createOrderUseCase;
     }
 
+    @Operation(summary = "Cria um novo pedido")
     @PostMapping
     public OrderResponse create(@RequestBody CreateOrderRequest request) {
-        Order order = createOrderUseCase.execute(request.toUseCaseRequest());
-        return OrderResponse.from(order);
+        return OrderResponse.from(createOrderUseCase.execute(request.toUseCaseRequest()));
     }
 
+    @Schema(description = "Request para criação de pedido")
     public record CreateOrderRequest(Long id, List<Item> items) {
 
         public List<OrderItem> toDomainItems() {
@@ -36,6 +38,7 @@ public class CreateOrderController {
             return new CreateOrderUseCase.Request(id(), toDomainItems());
         }
 
+        @Schema(description = "Item do pedido")
         public record Item(String sku, Integer quantity, BigDecimal price) {}
     }
 }

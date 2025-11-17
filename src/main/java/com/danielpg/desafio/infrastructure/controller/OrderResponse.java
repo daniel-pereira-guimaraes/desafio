@@ -1,11 +1,17 @@
 package com.danielpg.desafio.infrastructure.controller;
 
 import com.danielpg.desafio.domain.Order;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public record OrderResponse(Long id, List<OrderItemResponse> items, BigDecimal total) {
+@Schema(description = "Representa um pedido com itens e total")
+public record OrderResponse(
+        @Schema(description = "ID do pedido") Long id,
+        @Schema(description = "Lista de itens do pedido") List<OrderItemResponse> items,
+        @Schema(description = "Valor total do pedido") BigDecimal total
+) {
 
     public static OrderResponse from(Order order) {
         List<OrderItemResponse> itemResponses = order.items().stream()
@@ -14,5 +20,11 @@ public record OrderResponse(Long id, List<OrderItemResponse> items, BigDecimal t
         return new OrderResponse(order.id(), itemResponses, order.total());
     }
 
-    public record OrderItemResponse(String sku, Integer quantity, BigDecimal price, BigDecimal total) {}
+    @Schema(description = "Representa um item do pedido")
+    public record OrderItemResponse(
+            @Schema(description = "SKU do produto") String sku,
+            @Schema(description = "Quantidade do item") Integer quantity,
+            @Schema(description = "Preço unitário do item") BigDecimal price,
+            @Schema(description = "Total do item (preço x quantidade)") BigDecimal total
+    ) {}
 }

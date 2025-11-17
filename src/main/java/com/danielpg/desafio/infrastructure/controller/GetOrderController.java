@@ -1,7 +1,7 @@
 package com.danielpg.desafio.infrastructure.controller;
 
 import com.danielpg.desafio.application.order.GetOrderUseCase;
-import com.danielpg.desafio.domain.Order;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,9 +14,9 @@ public class GetOrderController {
         this.getOrderUseCase = getOrderUseCase;
     }
 
+    @Operation(summary = "Retorna os detalhes de um pedido pelo ID")
     @GetMapping("/{id}")
     public OrderResponse get(@PathVariable Long id) {
-        Order order = getOrderUseCase.execute(id);
-        return OrderResponse.from(order);
+        return OrderResponse.from(getOrderUseCase.execute(id));
     }
 }
