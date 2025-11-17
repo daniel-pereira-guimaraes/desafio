@@ -38,16 +38,4 @@ public class CreateOrderController {
 
         public record Item(String sku, Integer quantity, BigDecimal price) {}
     }
-
-    public record OrderResponse(Long id, List<OrderItemResponse> items, BigDecimal total) {
-
-        public static OrderResponse from(Order order) {
-            List<OrderItemResponse> itemResponses = order.items().stream()
-                    .map(i -> new OrderItemResponse(i.sku(), i.quantity(), i.price(), i.total()))
-                    .toList();
-            return new OrderResponse(order.id(), itemResponses, order.total());
-        }
-
-        public record OrderItemResponse(String sku, Integer quantity, BigDecimal price, BigDecimal total) {}
-    }
 }
