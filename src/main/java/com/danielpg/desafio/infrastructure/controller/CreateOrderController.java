@@ -1,6 +1,6 @@
 package com.danielpg.desafio.infrastructure.controller;
 
-import com.danielpg.desafio.application.CreateOrderUseCase;
+import com.danielpg.desafio.application.order.CreateOrderUseCase;
 import com.danielpg.desafio.domain.Order;
 import com.danielpg.desafio.domain.OrderItem;
 import org.springframework.web.bind.annotation.*;

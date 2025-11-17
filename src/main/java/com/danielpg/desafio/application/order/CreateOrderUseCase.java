@@ -1,4 +1,4 @@
-package com.danielpg.desafio.application;
+package com.danielpg.desafio.application.order;
 
 import com.danielpg.desafio.domain.Order;
 import com.danielpg.desafio.domain.OrderItem;
